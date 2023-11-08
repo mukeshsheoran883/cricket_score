@@ -51,13 +51,13 @@ class DataInfo {
     if (json['teamInfo'] != null) {
       teamInfo = <TeamInfo>[];
       json['teamInfo'].forEach((v) {
-        teamInfo!.add(new TeamInfo.fromJson(v));
+        teamInfo!.add(TeamInfo.fromJson(v));
       });
     }
     if (json['score'] != null) {
       score = <MatchScoreInfo>[];
       json['score'].forEach((v) {
-        score!.add(new MatchScoreInfo.fromJson(v));
+        score!.add(MatchScoreInfo.fromJson(v));
       });
     }
     seriesId = json['series_id'];
@@ -69,27 +69,27 @@ class DataInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['matchType'] = this.matchType;
-    data['status'] = this.status;
-    data['venue'] = this.venue;
-    data['date'] = this.date;
-    data['dateTimeGMT'] = this.dateTimeGMT;
-    data['teams'] = this.teams;
-    if (this.teamInfo != null) {
-      data['teamInfo'] = this.teamInfo!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['matchType'] = matchType;
+    data['status'] = status;
+    data['venue'] = venue;
+    data['date'] = date;
+    data['dateTimeGMT'] = dateTimeGMT;
+    data['teams'] = teams;
+    if (teamInfo != null) {
+      data['teamInfo'] = teamInfo!.map((v) => v.toJson()).toList();
     }
-    if (this.score != null) {
-      data['score'] = this.score!.map((v) => v.toJson()).toList();
+    if (score != null) {
+      data['score'] = score!.map((v) => v.toJson()).toList();
     }
-    data['series_id'] = this.seriesId;
-    data['fantasyEnabled'] = this.fantasyEnabled;
-    data['bbbEnabled'] = this.bbbEnabled;
-    data['hasSquad'] = this.hasSquad;
-    data['matchStarted'] = this.matchStarted;
-    data['matchEnded'] = this.matchEnded;
+    data['series_id'] = seriesId;
+    data['fantasyEnabled'] = fantasyEnabled;
+    data['bbbEnabled'] = bbbEnabled;
+    data['hasSquad'] = hasSquad;
+    data['matchStarted'] = matchStarted;
+    data['matchEnded'] = matchEnded;
     return data;
   }
 }
