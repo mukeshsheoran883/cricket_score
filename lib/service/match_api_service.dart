@@ -4,7 +4,7 @@ import 'package:cricket_score/util/api_end_point.dart';
 import 'package:http/http.dart' as http;
 
 class MatchApiService{
-  static  Future<MatchResponse> getMatchInfo() async {
+    Future<MatchResponse> getMatchInfo() async {
     String url = ApiEndPoint.baseUrl;
     http.Response response = await http.get(
       Uri.parse(url),
