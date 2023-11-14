@@ -1,5 +1,7 @@
+import 'package:cricket_score/provider/cricket_provider.dart';
 import 'package:cricket_score/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) {
+              return CricketProvider();
+            },
+          )
+        ],
+        child: const HomeScreen(),
+      ),
     );
   }
 }
